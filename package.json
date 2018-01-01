@@ -1,0 +1,9 @@
+{
+  "name": "TuneBase",
+  "repository": "https://github.com/askaholic/TuneBase.git",
+  "liscence": "GPL-3.0",
+  "dependencies": {
+    "abcjs": "^3.2.1",
+    "express": "^4.16.2"
+  }
+}
