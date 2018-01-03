@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Tune } from '../../models/tune.model';
+
+import { Store } from '@ngrx/store';
+import { TuneListState, TuneState } from '../../store/tune/tune.state';
+import * as TuneActions from '../../store/tune/tune.action';
+
+
 @Component({
   selector: 'app-tunelist',
   templateUrl: './tunelist.component.html',
@@ -7,9 +14,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TunelistComponent implements OnInit {
 
-  constructor() { }
+    protected tuneListState: Store<Tune[]>;
 
-  ngOnInit() {
-  }
+    constructor(protected store: Store<TuneListState>) { }
+
+    ngOnInit() {
+        this.tuneListState = this.store.select('tunes');
+        this.store.dispatch(new TuneActions.GetTunes());
+    }
 
 }

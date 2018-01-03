@@ -4,17 +4,17 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
-import { TuneComponent } from './components/tune/tune.component';
 import { TunelistComponent } from './components/tunelist/tunelist.component';
 
 import { TuneReducer } from './store/tune/tune.reducer';
+import { TunelistItemComponent } from './components/tunelist-item/tunelist-item.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TuneComponent,
-    TunelistComponent
+    TunelistComponent,
+    TunelistItemComponent
   ],
   imports: [
     BrowserModule,

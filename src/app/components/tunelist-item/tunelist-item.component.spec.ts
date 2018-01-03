@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TuneComponent } from './tune.component';
+import { TunelistItemComponent } from './tunelist-item.component';
 
-describe('TuneComponent', () => {
-  let component: TuneComponent;
-  let fixture: ComponentFixture<TuneComponent>;
+describe('TunelistItemComponent', () => {
+  let component: TunelistItemComponent;
+  let fixture: ComponentFixture<TunelistItemComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TuneComponent ]
+      declarations: [ TunelistItemComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TuneComponent);
+    fixture = TestBed.createComponent(TunelistItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
