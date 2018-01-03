@@ -29,5 +29,8 @@ export function TuneReducer(state = defaultState, action: Action) {
                 loading: false
             }
         }
+        default: {
+            return state;
+        }
     }
 }

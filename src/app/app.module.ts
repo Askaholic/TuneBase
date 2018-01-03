@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
@@ -18,7 +19,10 @@ import { TunelistItemComponent } from './components/tunelist-item/tunelist-item.
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({tunes: TuneReducer})
+    StoreModule.forRoot({tunes: TuneReducer}),
+    StoreDevtoolsModule.instrument({
+        maxAge: 20
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
