@@ -12,13 +12,20 @@ export class TunelistItemComponent implements OnInit, AfterViewInit {
 
     @Input() tune;
 
+    protected open: boolean;
+
     constructor() { }
 
     ngOnInit() {
+        this.open = false;
     }
 
     ngAfterViewInit() {
         this.render();
+    }
+
+    toggle() {
+        this.open = !this.open;
     }
 
     render() {
@@ -26,7 +33,6 @@ export class TunelistItemComponent implements OnInit, AfterViewInit {
             scale: 0.5,
             staffwidth: 740 /2
         }
-        let divId: string = "tune-" + this.tune._id;
-        abcjs.renderAbc(divId, this.tune.abc_body, {}, engraverParams, {});
+        abcjs.renderAbc("tune-" + this.tune._id, this.tune.abc_body, {}, engraverParams, {});
     }
 }

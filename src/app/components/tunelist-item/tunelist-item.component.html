@@ -1,10 +1,17 @@
 <div class="">
     <div class="card mb-2">
-        <div class="card-header">
-            <p>{{ tune.title }}</p>
+        <div class="card-header clickable"
+            (click)="toggle()">
+            <p class="m-0">
+                {{ tune.title }} ({{tune.key}})
+            </p>
         </div>
-        <div class="card-body">
-            <div id="tune-{{ tune._id }}"></div>
+        <div class="card-body" [ngClass]="{'collapse': !open}">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="tune-svg" id="tune-{{ tune._id }}"></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
