@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectionStrategy, AfterViewInit } from '@angular/core';
 
 import * as abcjs from "abcjs";
 
@@ -8,13 +8,16 @@ import * as abcjs from "abcjs";
   styleUrls: ['./tunelist-item.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TunelistItemComponent implements OnInit {
+export class TunelistItemComponent implements OnInit, AfterViewInit {
 
     @Input() tune;
 
     constructor() { }
 
     ngOnInit() {
+    }
+
+    ngAfterViewInit() {
         this.render();
     }
 
@@ -23,6 +26,7 @@ export class TunelistItemComponent implements OnInit {
             scale: 0.5,
             staffwidth: 740 /2
         }
-        abcjs.renderAbc("paper", this.tune.abc_body, {}, engraverParams, {});
+        let divId: string = "tune-" + this.tune._id;
+        abcjs.renderAbc(divId, this.tune.abc_body, {}, engraverParams, {});
     }
 }

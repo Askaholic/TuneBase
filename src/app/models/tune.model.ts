@@ -12,10 +12,12 @@ export class Tune {
     key: string;
     abc_body: string;
 
-    constructor (title: string,
-                 composer: string,
-                 key: string,
-                 abc: string) {
+    constructor(id: string,
+                title: string,
+                composer: string,
+                key: string,
+                abc: string) {
+        this._id = id;
         this.title = title;
         this.composer = composer;
         this.key = key;
@@ -24,6 +26,6 @@ export class Tune {
 
     static fromABC(abc: string) {
         // TODO: Implement this
-        return new Tune('', '', '', '');
+        return new Tune('id', 'title', 'composer', 'key', 'abc');
     }
 }
