@@ -2,15 +2,30 @@
     <div class="card mb-2">
         <div class="card-header clickable"
             (click)="toggle()">
-            <p class="m-0">
-                {{ tune.title }} ({{tune.key}})
-            </p>
+            <div class="row">
+                <div class="col-sm-6">
+                    <p class="m-0">{{ tune.title }}</p>
+                </div>
+                <div class="col-sm-6">
+                    <p class="m-0 pull-right">{{tune.key}}</p>
+                </div>
+            </div>
         </div>
         <div class="card-body" [ngClass]="{'collapse': !open}">
             <div class="row">
+                <div class="col-md-8">
+                    <div class="tune-svg" id="tune-{{ tune._id }}"></div>
+                </div>
                 <div class="col-md-4">
-                    <div class="tune-svg-container">
-                        <div class="tune-svg" id="tune-{{ tune._id }}"></div>
+                    <div class="btn-group">
+                        <button type="button" class="btn">Download PDF</button>
+                        <button type="button" class="btn dropdown-toggle dropdown-toggle-split" (click)="toggleDropdown();"></button>
+
+                        <div class="dropdown-menu" [ngClass]="{'show': dropdownOpen}" (click)="toggleDropdown()">
+                            <a class="dropdown-item" href="#">Download PDF</a>
+                            <a class="dropdown-item" href="#">Download SVG</a>
+                            <a class="dropdown-item" href="#">Download PNG</a>
+                        </div>
                     </div>
                 </div>
             </div>

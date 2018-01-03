@@ -13,6 +13,7 @@ export class TunelistItemComponent implements OnInit, AfterViewInit {
     @Input() tune;
 
     protected open: boolean;
+    protected dropdownOpen: boolean;
 
     constructor() { }
 
@@ -26,6 +27,10 @@ export class TunelistItemComponent implements OnInit, AfterViewInit {
 
     toggle() {
         this.open = !this.open;
+    }
+
+    toggleDropdown() {
+        this.dropdownOpen = !this.dropdownOpen;
     }
 
     render() {
