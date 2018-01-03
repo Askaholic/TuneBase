@@ -30,9 +30,9 @@ export class TunelistItemComponent implements OnInit, AfterViewInit {
 
     render() {
         let engraverParams = {
-            scale: 0.5,
-            staffwidth: 740 /2
+            responsive: 'resize',
+            paddingTop: 100
         }
-        abcjs.renderAbc("tune-" + this.tune._id, this.tune.abc_body, {}, engraverParams, {});
+        abcjs.renderAbc("tune-" + this.tune._id, this.tune.getABCBody(), {}, engraverParams, {});
     }
 }

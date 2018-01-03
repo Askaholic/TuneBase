@@ -10,22 +10,31 @@ export class Tune {
     title: string;
     composer: string;
     key: string;
-    abc_body: string;
+    abc: string;
 
-    constructor(id: string,
-                title: string,
-                composer: string,
-                key: string,
-                abc: string) {
+    constructor(id: string, abc: string) {
         this._id = id;
-        this.title = title;
-        this.composer = composer;
-        this.key = key;
-        this.abc_body = abc;
+        this.title = this.getMatch(abc, "T");
+        this.composer = this.getMatch(abc, "C");
+        this.key = this.getMatch(abc, "K");
+        this.abc = abc;
     }
 
-    static fromABC(abc: string) {
-        // TODO: Implement this
-        return new Tune('id', 'title', 'composer', 'key', 'abc');
+    getABCBody() {
+        let m = this.abc.match(/[\s\S]*K:\s?(.*)\n([\s\S]*)/);
+        if(!m) {
+            return '';
+        }
+
+        return m[2];
+    }
+
+    private getMatch(abc: string, letter: string, default_: string = '') {
+        let m = abc.match(new RegExp("[\\s\\S]*" + letter + ":\\s?(.*)"));
+        if (!m) {
+            return default_;
+        }
+        
+        return m[1];
     }
 }

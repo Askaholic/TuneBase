@@ -9,7 +9,9 @@
         <div class="card-body" [ngClass]="{'collapse': !open}">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="tune-svg" id="tune-{{ tune._id }}"></div>
+                    <div class="tune-svg-container">
+                        <div class="tune-svg" id="tune-{{ tune._id }}"></div>
+                    </div>
                 </div>
             </div>
         </div>
